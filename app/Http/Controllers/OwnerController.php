@@ -53,9 +53,12 @@ class OwnerController extends Controller
     {
 
         $validator = $this->validate($request, [
-            'no_hp'     => 'required|numeric',
-            'alamat'    => 'required',
-            'rekening'  => 'required|numeric'
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'no_hp'         => 'required|numeric',
+            'alamat'        => 'required',
+            'rekening'      => 'required',
+            'no_rekening'   => 'required|numeric'
         ]);
 
         if ($validator) {
@@ -99,9 +102,12 @@ class OwnerController extends Controller
     public function update(Request $request, $id)
     {
         $validator = $this->validate($request, [
-            'no_hp'     => 'required|numeric',
-            'alamat'    => 'required',
-            'rekening'  => 'required|numeric'
+            'first_name'    => 'required',
+            'last_name'     => 'required',
+            'no_hp'         => 'required|numeric',
+            'alamat'        => 'required',
+            'rekening'      => 'required',
+            'no_rekening'   => 'required|numeric'
         ]);
 
         // cek jika Validator Is Valid
