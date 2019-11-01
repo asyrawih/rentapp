@@ -10,13 +10,15 @@
 |
 */
 
+use Illuminate\Http\Request;
+
+//View Route 
 $router->get('/', function () use ($router) {
     return view('welcome');
 });
 
-
-
-$router->group(['prefix' => 'api' , 'middleware' => 'auth'] , function($router){ 
-    $router->get('owner' , 'OwnerController@index'); 
-    $router->post('owner' , 'OwnerController@store'); 
+// APi ROUTE 
+$router->group(['prefix' => 'api', 'middleware' => 'auth'], function ($router) {
+    $router->get('owner', 'OwnerController@index');
+    $router->post('owner', 'OwnerController@store');
 });
