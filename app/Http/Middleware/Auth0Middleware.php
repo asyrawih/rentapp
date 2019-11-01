@@ -31,7 +31,7 @@ class Auth0Middleware
         try {
             $verifier = new JWTVerifier([
               'supported_algs' => ['RS256'],
-              'valid_audiences' => ['http://lumenapi.test'],
+              'valid_audiences' => ['rentapp'],
               'authorized_iss' => ['https://irent-id.auth0.com/']
             ]);
 
