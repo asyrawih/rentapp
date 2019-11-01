@@ -101,24 +101,13 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $validator = $this->validate($request, [
-            'first_name'    => 'required',
-            'last_name'     => 'required',
-            'no_hp'         => 'required|numeric',
-            'alamat'        => 'required',
-            'rekening'      => 'required',
-            'no_rekening'   => 'required|numeric'
-        ]);
-
         // cek jika Validator Is Valid
-        if ($validator == TRUE) {
-            $owner = Owner::where('owner_id', $id)->update($request->all());
-            if ($owner == TRUE) {
-                return response()->json([
-                    'status'    => true,
-                    'messages'  => 'Data berhasil di update'
-                ], 201);
-            }
+        $owner = Owner::where('owner_id', $id)->update($request->all());
+        if ($owner == TRUE) {
+            return response()->json([
+                'status'    => true,
+                'messages'  => 'Data berhasil di update'
+            ], 201);
         }
     }
 
