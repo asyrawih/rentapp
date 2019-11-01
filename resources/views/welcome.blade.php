@@ -11,7 +11,7 @@
 <body>
     <div class="container">
         <div class="row">
-            <h2>App Rental Tes</h2>
+            <h2>App Rental Tes Lagi </h2>
         </div>
     </div>
 </body>
