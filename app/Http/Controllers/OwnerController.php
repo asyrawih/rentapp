@@ -70,7 +70,7 @@ class OwnerController extends Controller
             return \response()->json([
                 'status'    => true,
                 'messages'  => 'data berhasil di buat'
-            ], 201);
+            ], 201 , $this->headers);
         }
     }
 
@@ -92,7 +92,7 @@ class OwnerController extends Controller
         return \response()->json([
             'status'    => true,
             'data'      => $owner
-        ], 200);
+        ], 200 , $this->headers);
     }
 
     /**
@@ -110,7 +110,7 @@ class OwnerController extends Controller
             return response()->json([
                 'status'    => true,
                 'messages'  => 'Data berhasil di update'
-            ], 201);
+            ], 201 , $this->headers);
         }
     }
 
