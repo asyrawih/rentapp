@@ -13,7 +13,7 @@
 use Illuminate\Http\Request;
 
 //View Route 
-$router->get('/', function () use ($router) {
+$router->get('/', function () {
     return view('welcome');
 });
 
@@ -21,4 +21,5 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'api', 'middleware' => 'auth'], function ($router) {
     $router->get('owner', 'OwnerController@index');
     $router->post('owner', 'OwnerController@store');
+    $router->get('owner/{owner_id}', 'OwnerController@show');
 });

@@ -76,7 +76,17 @@ class OwnerController extends Controller
      */
     public function show($id)
     {
-        //
+        $owner = Owner::where('owner_id', $id)->get();
+        if($owner->count() <= 0){
+            return \response()->json([
+                'status'    => false , 
+                'messages'  => 'data tidak di temukan'
+            ],404);
+        }
+        return \response()->json([
+            'status'    => true , 
+            'data'      => $owner
+        ] ,200);
     }
 
     /**
