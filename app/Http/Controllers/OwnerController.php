@@ -77,16 +77,16 @@ class OwnerController extends Controller
     public function show($id)
     {
         $owner = Owner::where('owner_id', $id)->get();
-        if($owner->count() <= 0){
+        if ($owner->count() <= 0) {
             return \response()->json([
-                'status'    => false , 
+                'status'    => false,
                 'messages'  => 'data tidak di temukan'
-            ],404);
+            ], 404);
         }
         return \response()->json([
-            'status'    => true , 
+            'status'    => true,
             'data'      => $owner
-        ] ,200);
+        ], 200);
     }
 
     /**
@@ -98,7 +98,22 @@ class OwnerController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validator = $this->validate($request, [
+            'no_hp'     => 'required|numeric',
+            'alamat'    => 'required',
+            'rekening'  => 'required|numeric'
+        ]);
+
+        // cek jika Validator Is Valid
+        if ($validator == TRUE) {
+            $owner = Owner::where('owner_id', $id)->update($request->all());
+            if ($owner == TRUE) {
+                return response()->json([
+                    'status'    => true,
+                    'messages'  => 'Data berhasil di update'
+                ], 201);
+            }
+        }
     }
 
     /**
