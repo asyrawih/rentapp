@@ -23,3 +23,4 @@ $router->group(['prefix' => 'api', 'middleware' => 'auth'], function ($router) {
     $router->post('owner', 'OwnerController@store');
     $router->get('owner/{owner_id}', 'OwnerController@show');
 });
+
